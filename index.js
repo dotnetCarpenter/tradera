@@ -65,6 +65,15 @@ function startBrowser(url) {
 			// }
 			);
 			break;
+		case "linux":
+			exec('xdg-open ' + url);
+			break;
+		case "darwin":
+			exec('open ' + url);
+			break;
+		case "freebsd":
+		case "sunos":
+			console.log("You have to manually open your browser");
 	}
 }
 
