@@ -1,0 +1,18 @@
+doctype html5
+html
+	head
+		title #{pageTitle}
+		link(rel="stylesheet", href="/css/normalize.css")
+		link(rel="stylesheet", href="/css/style.css")
+	body
+		div.main
+			form(action="/login", method="get")
+				input(type="text", placeholder="Username", name="Username")
+				br
+				input(type="password", placeholder="Password", name="Password")
+				br
+				input(type="submit", value="Login")
+			hr
+			img(src="images/tradera1.png")
+			hr
+			img(src="images/tradera2.png")
