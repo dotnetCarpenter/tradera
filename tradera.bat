@@ -1,3 +1,3 @@
 REM Windows Batch code
 
-node %cd%\index.js
+node %~dp0index.js
