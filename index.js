@@ -33,9 +33,11 @@ app.get('/login', function(req, res) {
 });
 
 // start express
-app.listen(3069);
+var server = app.listen(3069);
 // start browser
 startBrowser("http://localhost:3069/");
+
+process.on('end', exit);
 
 function login(username, password) {
 	// start casperjs
@@ -65,6 +67,15 @@ function startBrowser(url) {
 			// }
 			);
 			break;
+		case "linux":
+			exec('xdg-open ' + url);
+			break;
+		case "darwin":
+			exec('open ' + url);
+			break;
+		case "freebsd":
+		case "sunos":
+			console.log("You have to manually open your browser");
 	}
 }
 
@@ -79,4 +90,6 @@ function log(msg) {
 
 function exit(code) {
 	process.exit(code || 0);
+	if(server)
+		server.close();
 }
